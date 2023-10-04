@@ -1,84 +1,59 @@
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
-import { MagnifyingGlassIcon, ShoppingBagIcon } from '@heroicons/react/24/outline'
+import { Fragment } from "react";
+import { Popover, Transition } from "@headlessui/react";
+import {
+  MagnifyingGlassIcon,
+  ShoppingBagIcon,
+} from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 const navigation = {
   categories: [
     {
-      name: 'Women',
+      name: "Women",
       clothing: [
         [
-          { name: 'Tops', href: '#' },
-          { name: 'Dresses', href: '#' },
-          { name: 'Pants', href: '#' },
-          { name: 'Denim', href: '#' },
-          { name: 'Sweaters', href: '#' },
-          { name: 'T-Shirts', href: '#' },
+          { name: "Tops", href: "#" },
+          { name: "Dresses", href: "#" },
+          { name: "Pants", href: "#" },
+          { name: "Denim", href: "#" },
+          { name: "Sweaters", href: "#" },
+          { name: "T-Shirts", href: "#" },
         ],
         [
-          { name: 'Jackets', href: '#' },
-          { name: 'Activewear', href: '#' },
-          { name: 'Shorts', href: '#' },
-          { name: 'Swimwear', href: '#' },
-          { name: 'Browse All', href: '#' },
+          { name: "Jackets", href: "#" },
+          { name: "Activewear", href: "#" },
+          { name: "Shorts", href: "#" },
+          { name: "Swimwear", href: "#" },
+          { name: "Browse All", href: "#" },
         ],
-      ],
-      accessories: [
-        { name: 'Shoes', href: '#' },
-        { name: 'Jewelry', href: '#' },
-        { name: 'Handbags', href: '#' },
-        { name: 'Socks', href: '#' },
-        { name: 'Hats', href: '#' },
-        { name: 'Browse All', href: '#' },
-      ],
-      categories: [
-        { name: 'New Arrivals', href: '#' },
-        { name: 'Sale', href: '#' },
-        { name: 'Basic Tees', href: '#' },
-        { name: 'Artwork Tees', href: '#' },
       ],
     },
     {
-      name: 'Men',
+      name: "Men",
       clothing: [
         [
-          { name: 'Dress Shirts', href: '#' },
-          { name: 'Pants', href: '#' },
-          { name: 'Jackets', href: '#' },
-          { name: 'T-Shirts', href: '#' },
-          { name: 'Jeans', href: '#' },
-          { name: 'Hoodies', href: '#' },
+          { name: "Dress Shirts", href: "#" },
+          { name: "Pants", href: "#" },
+          { name: "Jackets", href: "#" },
+          { name: "T-Shirts", href: "#" },
+          { name: "Jeans", href: "#" },
+          { name: "Hoodies", href: "#" },
         ],
         [
-          { name: 'Vests', href: '#' },
-          { name: 'Kilts', href: '#' },
-          { name: 'Outdoors', href: '#' },
-          { name: 'Capes', href: '#' },
-          { name: 'Browse All', href: '#' },
+          { name: "Vests", href: "#" },
+          { name: "Kilts", href: "#" },
+          { name: "Outdoors", href: "#" },
+          { name: "Capes", href: "#" },
+          { name: "Browse All", href: "#" },
         ],
-      ],
-      accessories: [
-        { name: 'Watches', href: '#' },
-        { name: 'Boots', href: '#' },
-        { name: 'Fanny Packs', href: '#' },
-        { name: 'Sunglasses', href: '#' },
-        { name: 'Browse All', href: '#' },
-      ],
-      categories: [
-        { name: 'Just Added', href: '#' },
-        { name: 'Clearance', href: '#' },
-        { name: 'Graphic Tees', href: '#' },
       ],
     },
   ],
-  other: [
-    { name: 'Company', href: '#' },
-    { name: 'Stores', href: '#' },
-  ],
-}
+  other: [{ name: "Products", href: "/products" }],
+};
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function NavBar() {
@@ -90,14 +65,10 @@ export default function NavBar() {
             <div className="flex h-16 items-center justify-between">
               {/* Logo */}
               <div className="flex flex-1">
-                <a href="#">
+                <Link to="/">
                   <span className="sr-only">Your Company</span>
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                    alt=""
-                  />
-                </a>
+                  <img className="h-8 w-auto" src="/sovanroth.png" alt="" />
+                </Link>
               </div>
 
               {/* Flyout menus */}
@@ -111,9 +82,9 @@ export default function NavBar() {
                             <Popover.Button
                               className={classNames(
                                 open
-                                  ? 'border-indigo-600 text-indigo-600'
-                                  : 'border-transparent text-gray-700 hover:text-gray-800',
-                                'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
+                                  ? "border-indigo-600 text-indigo-600"
+                                  : "border-transparent text-gray-700 hover:text-gray-800",
+                                "relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out"
                               )}
                             >
                               {category.name}
@@ -131,14 +102,20 @@ export default function NavBar() {
                           >
                             <Popover.Panel className="absolute inset-x-0 top-full text-gray-500 sm:text-sm">
                               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
-                              <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true" />
+                              <div
+                                className="absolute inset-0 top-1/2 bg-white shadow"
+                                aria-hidden="true"
+                              />
 
                               <div className="relative bg-white">
                                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                                   <div className="grid grid-cols-1 items-start gap-x-6 gap-y-10 pb-12 pt-10 md:grid-cols-2 lg:gap-x-8">
                                     <div className="grid grid-cols-1 gap-x-6 gap-y-10 lg:gap-x-8">
                                       <div>
-                                        <p id="clothing-heading" className="font-medium text-gray-900">
+                                        <p
+                                          id="clothing-heading"
+                                          className="font-medium text-gray-900"
+                                        >
                                           Clothing
                                         </p>
                                         <div className="mt-4 border-t border-gray-200 pt-6 sm:grid sm:grid-cols-2 sm:gap-x-6">
@@ -147,66 +124,44 @@ export default function NavBar() {
                                             aria-labelledby="clothing-heading"
                                             className="space-y-6 sm:space-y-4"
                                           >
-                                            {category.clothing[0].map((item) => (
-                                              <li key={item.name} className="flex">
-                                                <a href={item.href} className="hover:text-gray-800">
-                                                  {item.name}
-                                                </a>
-                                              </li>
-                                            ))}
+                                            {category.clothing[0].map(
+                                              (item) => (
+                                                <li
+                                                  key={item.name}
+                                                  className="flex"
+                                                >
+                                                  <a
+                                                    href={item.href}
+                                                    className="hover:text-gray-800"
+                                                  >
+                                                    {item.name}
+                                                  </a>
+                                                </li>
+                                              )
+                                            )}
                                           </ul>
                                           <ul
                                             role="list"
                                             aria-label="More clothing"
                                             className="mt-6 space-y-6 sm:mt-0 sm:space-y-4"
                                           >
-                                            {category.clothing[1].map((item) => (
-                                              <li key={item.name} className="flex">
-                                                <a href={item.href} className="hover:text-gray-800">
-                                                  {item.name}
-                                                </a>
-                                              </li>
-                                            ))}
+                                            {category.clothing[1].map(
+                                              (item) => (
+                                                <li
+                                                  key={item.name}
+                                                  className="flex"
+                                                >
+                                                  <a
+                                                    href={item.href}
+                                                    className="hover:text-gray-800"
+                                                  >
+                                                    {item.name}
+                                                  </a>
+                                                </li>
+                                              )
+                                            )}
                                           </ul>
                                         </div>
-                                      </div>
-                                    </div>
-                                    <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:gap-x-8">
-                                      <div>
-                                        <p id="accessories-heading" className="font-medium text-gray-900">
-                                          Accessories
-                                        </p>
-                                        <ul
-                                          role="list"
-                                          aria-labelledby="accessories-heading"
-                                          className="mt-4 space-y-6 border-t border-gray-200 pt-6 sm:space-y-4"
-                                        >
-                                          {category.accessories.map((item) => (
-                                            <li key={item.name} className="flex">
-                                              <a href={item.href} className="hover:text-gray-800">
-                                                {item.name}
-                                              </a>
-                                            </li>
-                                          ))}
-                                        </ul>
-                                      </div>
-                                      <div>
-                                        <p id="categories-heading" className="font-medium text-gray-900">
-                                          Categories
-                                        </p>
-                                        <ul
-                                          role="list"
-                                          aria-labelledby="categories-heading"
-                                          className="mt-4 space-y-6 border-t border-gray-200 pt-6 sm:space-y-4"
-                                        >
-                                          {category.categories.map((item) => (
-                                            <li key={item.name} className="flex">
-                                              <a href={item.href} className="hover:text-gray-800">
-                                                {item.name}
-                                              </a>
-                                            </li>
-                                          ))}
-                                        </ul>
                                       </div>
                                     </div>
                                   </div>
@@ -220,13 +175,13 @@ export default function NavBar() {
                   ))}
 
                   {navigation.other.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
+                      to={item.href}
                       className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </Popover.Group>
@@ -245,7 +200,9 @@ export default function NavBar() {
                       className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+                      0
+                    </span>
                     <span className="sr-only">items in cart, view bag</span>
                   </a>
                 </div>
@@ -255,5 +212,5 @@ export default function NavBar() {
         </nav>
       </header>
     </div>
-  )
+  );
 }
