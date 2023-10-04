@@ -13,6 +13,7 @@
   }
   ```
 */
+import { Link } from 'react-router-dom'
 import NavBar from '../../../Components/NavBar/NavBar'
 
 const favorites = [
@@ -90,8 +91,7 @@ export default function Home() {
                 Summer styles are finally here
               </h1>
               <p className="mt-4 text-xl text-gray-500">
-                This year, our new summer collection will shelter you from the harsh elements of a world that doesn't
-                care if you live or die.
+                This year, our new summer collection .
               </p>
             </div>
             <div>
@@ -155,12 +155,12 @@ export default function Home() {
                   </div>
                 </div>
 
-                <a
-                  href="#"
+                <Link
+                  to="/products"
                   className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
                 >
-                  Shop Collection
-                </a>
+                  See our Products
+                </Link>
               </div>
             </div>
           </div>

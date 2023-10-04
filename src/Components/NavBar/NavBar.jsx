@@ -32,24 +32,24 @@ const navigation = {
       name: "Men",
       clothing: [
         [
-          { name: "Dress Shirts", href: "#" },
-          { name: "Pants", href: "#" },
-          { name: "Jackets", href: "#" },
-          { name: "T-Shirts", href: "#" },
-          { name: "Jeans", href: "#" },
-          { name: "Hoodies", href: "#" },
+          { name: "Dress Shirts", href: "/" },
+          { name: "Pants", href: "/" },
+          { name: "Jackets", href: "/" },
+          { name: "T-Shirts", href: "/" },
+          { name: "Jeans", href: "/" },
+          { name: "Hoodies", href: "/" },
         ],
         [
-          { name: "Vests", href: "#" },
-          { name: "Kilts", href: "#" },
-          { name: "Outdoors", href: "#" },
-          { name: "Capes", href: "#" },
-          { name: "Browse All", href: "#" },
+          { name: "Vests", href: "/" },
+          { name: "Kilts", href: "/" },
+          { name: "Outdoors", href: "/" },
+          { name: "Capes", href: "/" },
+          { name: "Browse All", href: "/" },
         ],
       ],
     },
   ],
-  other: [{ name: "Products", href: "/products" }],
+  other: [{ name: "Products", href: "/products"}],
 };
 
 function classNames(...classes) {
@@ -130,12 +130,12 @@ export default function NavBar() {
                                                   key={item.name}
                                                   className="flex"
                                                 >
-                                                  <a
-                                                    href={item.href}
+                                                  <Link
+                                                    to={item.href}
                                                     className="hover:text-gray-800"
                                                   >
                                                     {item.name}
-                                                  </a>
+                                                  </Link>
                                                 </li>
                                               )
                                             )}
@@ -151,12 +151,12 @@ export default function NavBar() {
                                                   key={item.name}
                                                   className="flex"
                                                 >
-                                                  <a
-                                                    href={item.href}
+                                                  <Link
+                                                    to={item.href}
                                                     className="hover:text-gray-800"
                                                   >
                                                     {item.name}
-                                                  </a>
+                                                  </Link>
                                                 </li>
                                               )
                                             )}
@@ -188,14 +188,14 @@ export default function NavBar() {
 
               <div className="flex flex-1 items-center justify-end">
                 {/* Search */}
-                <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
+                <Link to="#" className="p-2 text-gray-400 hover:text-gray-500">
                   <span className="sr-only">Search</span>
                   <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
-                </a>
+                </Link>
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-8">
-                  <a href="#" className="group -m-2 flex items-center p-2">
+                  <Link to="#" className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
                       className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
@@ -204,7 +204,7 @@ export default function NavBar() {
                       0
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
